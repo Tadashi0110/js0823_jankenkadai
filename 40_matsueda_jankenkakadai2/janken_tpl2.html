@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample2.css">
+<title>甲虫王者ムシキング</title>
+</head>
+<body>
+
+<!-- <header>
+  <img class="title" src="img/title.png" alt="">
+</header> -->
+
+<main>
+    <div class="main1">
+        <img class="title" src="img/title.png" alt="">
+        <div class="con">
+            <!-- カブトムシHPゲージ表示 -->
+            <div class="beehp">
+                <p>あなた</p>
+                <img class="beeimg" src="img/bee.jpg" alt="">
+                <p class="bee">たいりょく</p>
+                <div id="life-frame">
+                    <div id="life-bar"></div>
+                    <div id="life-mark"></div>
+                </div>
+            </div>
+
+            <div id="echo">VS</div>
+
+            <!-- ノコギリクワガタHPゲージ表示 -->
+            <div class="staghp">
+                <p>相手</p>
+                <img class="stagimg"src="img/stag.jpg" alt="">
+                <p class="stag">たいりょく</p>
+                <div id="life-frame2">
+                    <div id="life-bar2"></div>
+                    <div id="life-mark2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>相手の出した手は？「<span id="pc_hands">なに？</span>」</div>
+    <div id="judgment"></div>
+
+    <ul>
+        <li id="gu_btn"><img class="gu-btn" src="img/gu.png" alt=""></li>
+        <li id="cho_btn"><img class="cho-btn" src="img/cho.png" alt=""></li>
+        <li id="par_btn"><img class="par-btn" src="img/pa.jpeg" alt=""></li>
+    </ul>
+
+    
+
+
+</main>
+
+<footer></footer>
+<script>
+    // じゃんけん用のSCRIPTを書いてください
+
+    // グー
+    let total = 150;
+    $("#gu_btn").on("click",function(){
+    const num =Math.ceil(Math.random()*3);
+        if (num == 1){   
+            $("#pc_hands").html("チョキ"); 
+            $("#judgment").html("アタック!!");
+            $("#judgment").css("color","#e61300"); 
+            alterLife2( -30 );
+        }
+        if (num == 2){
+            $("#pc_hands").html("グー"); 
+            $("#judgment").html("あいこでしょ"); 
+            $("#judgment").css("color","#000000"); 
+        }
+        if (num == 3){
+            $("#pc_hands").html("パー"); 
+            $("#judgment").html("ダメージ!!");
+            $("#judgment").css("color","#000966"); 
+            alterLife( -30 );
+        }
+
+    });
+
+    // チョキ
+    $("#cho_btn").on("click",function(){
+    const num =Math.ceil(Math.random()*3);
+        if (num == 1){   
+            $("#pc_hands").html("チョキ"); 
+            $("#judgment").html("あいこでしょ"); 
+            $("#judgment").css("color","#000000"); 
+        }
+        if (num == 2){
+            $("#pc_hands").html("グー"); 
+            $("#judgment").html("ダメージ!!"); 
+            $("#judgment").css("color","#000966"); 
+            alterLife( -30 );
+        }
+        if (num == 3){
+            $("#pc_hands").html("パー"); 
+            $("#judgment").html("アタック!!");
+            $("#judgment").css("color","#e61300"); 
+            alterLife2( -30 );
+        }
+
+    });
+
+    // パー
+    $("#par_btn").on("click",function(){
+    const num =Math.ceil(Math.random()*3);
+        if (num == 1){   
+            $("#pc_hands").html("チョキ"); 
+            $("#judgment").html("ダメージ!!"); 
+            $("#judgment").css("color","#000966"); 
+            alterLife( -30 );
+        }
+        if (num == 2){
+            $("#pc_hands").html("グー"); 
+            $("#judgment").html("アタック!!"); 
+            $("#judgment").css("color","#e61300"); 
+            alterLife2( -30 );
+        }
+        if (num == 3){
+            $("#pc_hands").html("パー"); 
+            $("#judgment").html("あいこでしょ");
+            $("#judgment").css("color","#000000"); 
+        }
+
+    });
+
+    // カブトムシのHP
+
+    const lifeBar = document.querySelector('#life-bar')         // ライフバー
+    const lifeMark = document.querySelector('#life-mark')       // ライフの光部分
+    let life = 100                                             // ライフ初期値
+    lifeBar.style.width = "100%"                                // ライフ初期幅
+
+    // *** ライフ変更処理 ***
+    function alterLife( value ){
+        // lifeの値を算出する
+        life += value 
+        if ( life <= 0 ){
+            // 算出の結果 0 以下になった場合
+            life = 0
+            // 0.3秒後に光部分を非表示にする
+            setTimeout(function(){
+                lifeMark.style.visibility = 'hidden'
+            }, 300)
+            $("#echo").html("Lose...");
+            $("#echo").css("color","#000966");
+            $("#echo").css("font-size","64px");
+            $("#echo").css("font-weight","bold");
+            $("#echo").css("font-family","fantasy");
+            $("#echo").css("text-aline","center");
+            $("#echo").css("padding-top","200px");
+        } else {
+            // 算出の結果 100 を超過した場合
+            if ( life > 100 ) {
+                life = 100
+            }
+            // 光部分を表示する
+            lifeMark.style.visibility = 'visible'
+        }
+        // スタイル(幅)を更新する
+        lifeBar.style.width = life + "%"
+    }
+
+
+    // クワガタのHP
+
+    const lifeBar2 = document.querySelector('#life-bar2')         // ライフバー
+    const lifeMark2 = document.querySelector('#life-mark2')       // ライフの光部分
+    let life2 = 100                                             // ライフ初期値
+    lifeBar2.style.width = "100%"                                // ライフ初期幅
+
+    // *** ライフ変更処理 ***
+    function alterLife2( value ){
+        // lifeの値を算出する
+        life2 += value 
+        if ( life2 <= 0 ){
+            // 算出の結果 0 以下になった場合
+            life2 = 0
+            // 0.3秒後に光部分を非表示にする
+            setTimeout(function(){
+                lifeMark2.style.visibility = 'hidden'
+            }, 300)
+            $("#echo").html("Win!!");
+            $("#echo").css("color","#e61300");
+            $("#echo").css("font-size","70px");
+            $("#echo").css("font-weight","bold");
+            $("#echo").css("font-family","fantasy");
+            $("#echo").css("text-aline","center");
+            $("#echo").css("padding-top","200px");
+        } else {
+            // 算出の結果 100 を超過した場合
+            if ( life2 > 100 ) {
+                life2 = 100
+            }
+            // 光部分を表示する
+            lifeMark2.style.visibility = 'visible'
+        }
+        // スタイル(幅)を更新する
+        lifeBar2.style.width = life2 + "%"
+    }
+    
+
+</script>
+</body>
+</html>

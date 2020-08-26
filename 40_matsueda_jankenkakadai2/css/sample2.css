@@ -1,0 +1,172 @@
+/* カブトムシのHP */
+#life-frame {
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgba(10, 0, 50, 0.6);
+    display: flex;
+    padding: 3px 3px;
+}
+
+#life-bar {
+    height: 3px;
+    background-color: rgb(0, 255, 255);
+    transition: 300ms
+}
+
+#life-mark {
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    filter: saturate(500%);
+    box-shadow: 0 0 5px 3px rgb(200, 255, 255),
+                0 0 7px 7px rgb(100, 255, 255);
+}
+
+/* ノコギリクワガタのHP */
+#life-frame2 {
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgba(10, 0, 50, 0.6);
+    display: flex;
+    padding: 3px 3px;
+}
+
+#life-bar2 {
+    height: 3px;
+    background-color: rgb(243, 32, 32);
+    transition: 300ms
+}
+
+#life-mark2 {
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    filter: saturate(500%);
+    box-shadow: 0 0 5px 3px rgb(200, 255, 255),
+                0 0 7px 7px rgb(100, 255, 255);
+}
+
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+    font-size: 25px;
+    text-shadow: 1px 2px 3px #292727;
+    color: #ffffff;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ffffff;
+    text-align: center;
+}
+p{
+    font-size:100%;
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    font-family: fantasy;
+    text-shadow: 1px 2px 3px #000000;
+}
+/* じゃんけんボタン */
+ul{
+    padding: 0;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    text-align: center;
+    list-style-type:none;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    transition: all 0.6s ease 0s;
+}
+li:hover{
+    cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+/* 画像 */
+img.beeimg {
+    width: 300px;
+    height: 400px;
+    padding-top:0px;
+}
+
+img.stagimg {
+    width: 300px;
+    height: 400x;
+    padding-top: 0px;
+}
+
+.con {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: -36px;
+}
+
+/* じゃんけんボタン */
+
+.gu-btn{
+    border-radius: 150px;
+    background: #ffffff;
+    box-shadow:  17px 17px 44px #cccccc, 
+                 -17px -17px 44px #ffffff;
+}
+
+
+.cho-btn{
+    border-radius: 150px;
+    background: #ffffff;
+    box-shadow:  17px 17px 44px #cccccc, 
+                 -17px -17px 44px #ffffff;
+}
+
+.par-btn{
+    border-radius: 150px;
+    background: #ffffff;
+    box-shadow:  17px 17px 44px #cccccc, 
+                 -17px -17px 44px #ffffff;
+}
+
+/* 判定 */
+div#echo {
+    font-size: 60px;
+    color: black;
+    font-weight: bold;
+    padding-top: 200px;
+}
+
+div#judgment {
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+}
+
+/* タイトル */
+img.title {
+    width: 400px;
+}
+
+/* メイン戦闘 */
+.main1{
+    background-image: url(../img/back2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 700px;
+    margin-bottom: -36px;
+
+}
