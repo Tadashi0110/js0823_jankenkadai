@@ -67,7 +67,7 @@
     const num =Math.ceil(Math.random()*3);
         if (num == 1){   
             $("#pc_hands").html("チョキ"); 
-            $("#judgment").html("アタック!!");
+            $("#judgment").html("勝ち!アタック!!");
             $("#judgment").css("color","#e61300"); 
             alterLife2( -30 );
         }
@@ -78,7 +78,7 @@
         }
         if (num == 3){
             $("#pc_hands").html("パー"); 
-            $("#judgment").html("ダメージ!!");
+            $("#judgment").html("負け!ダメージ!!");
             $("#judgment").css("color","#000966"); 
             alterLife( -30 );
         }
@@ -95,13 +95,13 @@
         }
         if (num == 2){
             $("#pc_hands").html("グー"); 
-            $("#judgment").html("ダメージ!!"); 
+            $("#judgment").html("負け!ダメージ!!"); 
             $("#judgment").css("color","#000966"); 
             alterLife( -30 );
         }
         if (num == 3){
             $("#pc_hands").html("パー"); 
-            $("#judgment").html("アタック!!");
+            $("#judgment").html("勝ち!アタック!!");
             $("#judgment").css("color","#e61300"); 
             alterLife2( -30 );
         }
@@ -113,13 +113,13 @@
     const num =Math.ceil(Math.random()*3);
         if (num == 1){   
             $("#pc_hands").html("チョキ"); 
-            $("#judgment").html("ダメージ!!"); 
+            $("#judgment").html("負け!ダメージ!!"); 
             $("#judgment").css("color","#000966"); 
             alterLife( -30 );
         }
         if (num == 2){
             $("#pc_hands").html("グー"); 
-            $("#judgment").html("アタック!!"); 
+            $("#judgment").html("勝ち!アタック!!"); 
             $("#judgment").css("color","#e61300"); 
             alterLife2( -30 );
         }
