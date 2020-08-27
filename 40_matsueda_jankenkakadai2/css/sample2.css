@@ -70,7 +70,7 @@ footer{
     text-align: center;
 }
 p{
-    font-size:100%;
+    font-size:144%;
     text-align: center;
     margin: auto;
     color: white;
@@ -166,7 +166,7 @@ img.title {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 700px;
+    height: 753px;
     margin-bottom: -36px;
 
 }
